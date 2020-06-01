@@ -1,0 +1,420 @@
+html, body {
+    margin: 0;
+    font-family: "Source Sans Pro", serif;
+}
+
+#current-project-name {
+    position: fixed;
+    top: 14%;
+    /* left: %; 36/5 */
+    left: 36.5%;
+    z-index: 2;
+    width: 310px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-size: 42px;
+    /* font-weight: 600; */
+    /* font-variant: small-caps; */
+}
+
+#delete-project-btn {
+    position: fixed;
+    display: block;
+    border-radius: 5px;
+    top: 16%;
+    left: 55%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+}
+
+#delete-project-btn img {
+    filter: invert(78%) sepia(0%) saturate(89%) hue-rotate(264deg) brightness(108%) contrast(83%);
+    transition: all 0.3s ease;
+}
+
+#delete-project-btn img:hover {
+    filter: invert(28%) sepia(65%) saturate(2618%) hue-rotate(345deg) brightness(98%) contrast(88%);
+}
+
+.project-container {
+    position: fixed;
+    top: 25%;
+    left: 22%;
+
+    width: 220px;
+    height: auto;
+
+
+    border-radius: 8px;
+}
+
+.task-container {
+
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 40px;
+    box-sizing: border-box;
+
+}
+
+.task-container-gradient {
+    position: fixed;
+    top: 20.5%;
+    left: 35%;
+
+    width: 490px;
+    height: 73%;
+
+    /* border: 1px solid black; */
+}
+
+.task-container-gradient:after {
+    position: absolute;
+    top: 0; 
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(white, 4.6%, rgba(255, 255, 255, 0) 5.6%, rgba(255, 255, 255, 0) 80%, 95%, white );
+    pointer-events: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+    }
+
+.project-item {
+    cursor: pointer;
+    background-color: rgb(241, 241, 241);
+    width: 100%;
+    padding: 12px 0 12px 12px;
+    box-sizing: border-box;
+    z-index: 2;
+
+    transition: background 0.2s ease;
+}
+
+
+.project-item:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.project-item:nth-last-child(2) {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#add-new-project {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: rgb(173, 173, 173);
+    cursor: pointer;
+    z-index: 2;
+
+    transition: color 0.3s ease;
+}
+
+#add-new-project:hover {
+    color: rgb(148, 148, 148);
+}
+
+.project-color {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: lightseagreen;
+
+    margin: 0px 10px;
+    margin-bottom: 1px;
+
+    transition: border-color 0.3s ease;
+}
+
+.active-project {
+    background-color: lightseagreen;
+    color: white;
+    font-weight: bold;
+}
+
+.active-project .project-color {
+    width: 6px;
+    height: 6px;
+    border: 1.5px solid white;
+}
+
+.project-name {
+    display: inline-block;
+    font-size: 15px;
+}
+
+.task-item {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    padding: 16px 18px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+    border: 1.3px solid white;
+    margin-bottom: 16px;
+    transition: border-color 0.3s ease-in-out, background 0.3s ease;
+    cursor: pointer;
+    background-color: white;
+}
+
+
+.task-item:hover {
+    border: 1.3px solid rgb(216, 216, 216);
+}
+
+.task-item.completed {
+    box-shadow: none;
+    border: 1.3px solid rgb(240, 240, 240);
+    background-color: rgb(243, 243, 243);
+}
+
+.task-item.completed .task-info {
+    color: rgb(199, 199, 199);
+}
+.task-item.completed .task-status {
+    border-color: rgb(216, 216, 216);
+}
+
+.task-item.completed .task-info .task-due-date {
+    color: rgb(199, 199, 199) !important;
+}
+
+.task-item.completed .task-info .task-description {
+    color: rgb(199, 199, 199);
+}
+
+.task-item.completed .task-priority {
+    opacity: 0%;
+}
+
+.task-description {
+    display: inline-block;
+    font-size: 12px;
+    color: #9c9c9c;
+    /* white-space:nowrap;
+    overflow: hidden; */
+    text-overflow: ellipsis;
+    padding-bottom: 8px;
+
+    transition: color 0.3s;
+}
+
+.task-due-date {
+    font-size: 13px;
+    transition: color 0.3s;
+}
+
+.task-name {
+    font-size: 18px;
+    padding-bottom: 1px;
+    transition: color 0.3s;
+}
+
+.task-priority {
+    position: absolute;
+    top: 13%;
+    left: 95%;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    /* margin: 0 0 2px 8px; */
+    opacity: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.task-info {
+    display: inline-block;
+    width: 80%;
+    margin-left: 50px;
+
+    transition: background 0.3s ease;
+}
+
+
+
+.task-status {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid #bbbbbb;
+    cursor: pointer;
+    top: 25%;
+    left: 5.5%;
+
+
+    transition: all 0.3s ease;
+}
+
+.task-options {
+    position: absolute;
+    left: 85%;
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+}
+
+#add-new-task-button {
+    position: fixed;
+    display: block;
+    border-radius: 5px;
+    top: 14.8%;
+    left: 58%;
+    transform: translate(-50%, 0);
+    color: #c4c4c4;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+#add-new-task-button img {
+    filter: invert(78%) sepia(0%) saturate(89%) hue-rotate(264deg) brightness(108%) contrast(83%);
+}
+
+#add-new-task-button:hover {
+    color: #999999;
+}
+
+.modify-container {
+    border-radius: 8px;
+    position: fixed;
+    background-color: white;
+    left: 64%;
+    top: 25%;
+    width: 250px;
+    /* box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2); */
+    /* padding: 30px; */
+    box-sizing: border-box;
+}
+
+#add-new-task-menu{
+    position: fixed;
+    width: 250px;
+    opacity: 0%;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.modify-container div label {
+    display: block;
+    font-size: 15px;
+    padding: 5px 0;
+}
+
+.modify-container div input {
+    font-size: 14px;
+    margin-bottom: 12px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(231, 231, 231);
+    height: 2.5em;
+    padding: 0 8px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.modify-container div textarea {
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid rgb(231, 231, 231);
+    padding: 8px;
+
+    outline: none;
+
+}
+
+.modify-title {
+    width: 100%;
+    padding-bottom: 12px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.modify-container div div button {
+    float: right;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-left: 15px;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.modify-container div div button:hover {
+    transform: scale(0.96);
+}
+
+#submit-new-task-btn, #submit-new-project-btn {
+    border: 1px solid #2196f3;
+    background-color: #2196f3;
+    color: white;
+}
+
+#cancel-new-task-btn, #cancel-new-project-btn {
+    border: 1px solid #2196f3;
+    background-color: white;
+    color: #2196f3;
+}
+
+#priority-select {
+    padding: 10px 14px 10px 14px;
+    width: 100%;
+    margin-bottom: 12px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(231, 231, 231);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#priority-select option {
+    padding: 8px 10px 8px 10px;
+}
+
+#add-new-project-menu {
+    position: fixed;
+    width: 250px;
+    opacity: 0%;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#color-input {
+
+}
+
+#delete-forever-btn {
+    position: fixed;
+    top: 94%;
+    left: 96%;
+    cursor: pointer;
+    filter: invert(28%) sepia(65%) saturate(2618%) hue-rotate(345deg) brightness(98%) contrast(88%);
+
+    transition: all 0.3s ease;
+}
+
+#delete-forever-btn:hover {
+    transform: scale(1.3);
+    
+}

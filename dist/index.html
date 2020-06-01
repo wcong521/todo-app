@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ToDo</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div id="current-project-name"></div>
+    <div id="delete-project-btn"><img src="assets/delete-icon.svg"></div>
+    <div id="add-new-task-button">+</div>
+    <div class="project-container">
+        <!-- <div class="project-item">
+            <div class="project-color"></div>
+            <div class="project-name">Default</div>
+        </div> -->
+        <div id="add-new-project">
+            + create new project
+        </div>
+    </div>
+    <div class="task-container-gradient">
+        <div class="task-container">
+            <!-- <div class="task-item">
+                <div class="task-status"></div>
+                <div class="task-info">
+                    <div class="task-name">Do the Dishes</div>
+                    <div class="task-due-date">Due 5/28/2020</div>
+                </div>
+                <div class="task-priority"></div>
+            </div> -->
+    
+        </div>
+    </div>
+
+
+    <div class="modify-container">
+        
+        <div id="add-new-project-menu">
+            <div class="modify-title">Add a New Project</div>
+            <div>
+                <label>Name</label>
+                <input id="project-name-input" type="text">
+            </div>
+            <div>
+                <label>Color</label>
+                <input id="project-color-input" type="color">
+            </div>
+            <div>
+                <button id="submit-new-project-btn">Submit</button>
+                <button id="cancel-new-project-btn">Cancel</button>
+            </div>
+        </div>
+
+        <div id="add-new-task-menu">
+            <div class="modify-title">Add a New Task</div>
+            <div>
+                <label>Name</label>
+                <input id="name-input" type="text">
+            </div>
+            <div>
+                <label>Due Date</label>
+                <input id="date-input" type="date">
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea id="description-input"></textarea>
+            </div>
+            <div>
+                <label>Priority</label>
+                <select id="priority-select" name="priority">
+                    <option value="1">Not Important</option>
+                    <option value="2">Somewhat Important</option>
+                    <option value="3">Important</option>
+                    <option value="4">Very Important</option>
+                    <option value="5">Critical</option>
+                </select>
+            </div>
+
+            <div>
+                <button id="submit-new-task-btn">Submit</button>
+                <button id="cancel-new-task-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="delete-forever-btn"><img src="assets/delete-forever-icon.svg"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
